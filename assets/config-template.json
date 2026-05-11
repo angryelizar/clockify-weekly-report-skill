@@ -1,0 +1,7 @@
+{
+  "_comment": "Copy this file to ~/.clockify.json and fill in your values",
+  "apiKey": "YOUR_CLOCKIFY_API_KEY",
+  "workspaceId": "YOUR_WORKSPACE_ID",
+  "userId": "YOUR_USER_ID",
+  "projectId": "YOUR_PROJECT_ID"
+}
