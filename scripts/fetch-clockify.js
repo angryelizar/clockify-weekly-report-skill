@@ -34,6 +34,7 @@ try {
 }
 
 const { apiKey, workspaceId, userId, projectId } = config;
+
 for (const [key, val] of Object.entries({ apiKey, workspaceId, userId, projectId })) {
     if (!val || val.startsWith("YOUR_")) {
         console.error(`Config field "${key}" is not set in ~/.clockify.json`);
@@ -61,7 +62,6 @@ async function fetchAllEntries() {
         const params = new URLSearchParams({
             start,
             end,
-            project: projectId,
             "page-size": pageSize,
             page,
         });

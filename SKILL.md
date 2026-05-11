@@ -52,27 +52,38 @@ The script reads `~/.clockify.json`, calls the Clockify API, and outputs a JSON 
 ```
 If the script fails, show the error message and ask the user to check their `~/.clockify.json`.
 
-### Step 3 — Generate the report
-Using the JSON output:
-- Format each entry as a bullet point: **task description** — ~X h (round `totalMinutes` to nearest 0.5 h, e.g. 75 min → ~1.5 h, 50 min → ~1 h)
-- Skip entries with less than 15 minutes total
-- Sort bullets by time descending (already sorted by script)
-- Do NOT group into sections — flat list only
+### Step 3 — Synthesize the report
+
+The raw time entries contain multi-line technical commit-style descriptions. **Do not** copy them verbatim. Instead:
+
+1. **Group** related entries by the feature/task/ticket they belong to. Entries that share the same task or ticket number should be merged into one bullet.
+2. **Summarize** the work done in natural, spoken language — as if you're telling a teammate what you did. Each bullet should be 1–3 sentences: what the task was, what you did, and where it stands now (if clear from the data).
+3. **Skip** entries with less than 15 minutes total.
+4. **Sort** by total time descending.
+
+#### Style guide for each bullet:
+- Start with the task name or ticket reference if present (e.g. `Task #1137`, `Bug #1142`)
+- Follow with a short natural-language summary of what was accomplished
+- End with current status if inferable (e.g. "ready for review", "in progress", "merged")
+- Do NOT use technical jargon or copy raw commit messages — write as spoken speech
+- Do NOT include time spent
+
+#### Example of good output:
+```
+• User Authentication (#42) — Добавил поддержку OAuth2, покрыл тестами. После ревью внёс правки. Готово к мержу.
+```
 
 ### Step 4 — Output both languages
-Output the result twice, separated by a divider:
+Output the result twice, separated by a divider. Write each bullet naturally in the target language — do NOT translate word-for-word.
 
 ```
 **RU**
-• <task> — ~X ч
-• <task> — ~X ч
+• <Название задачи (#номер)> — <что сделал, статус>
 
 ---
 
 **EN**
-• <task> — ~X h
-• <task> — ~X h
+• <Task name (#number)> — <what was done, status>
 ```
 
-Keep each bullet concise — one line, no sub-bullets.
 Do not add any commentary, headers beyond RU/EN, or meta text.
