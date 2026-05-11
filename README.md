@@ -9,13 +9,13 @@ A short bullet-point speech ready to read aloud at a standup or weekly sync. Eac
 **Example output:**
 ```
 **RU**
-• CA Location Sources Import — Реализовал полный пайплайн импорта данных, настроил валидацию и загрузку в базу. В работе.
+• New Payment Flow (#101) — Реализовал основной флоу оплаты, покрыл тестами. В работе.
 • Bug #42 (Checkout form) — Исправил баг с валидацией, внёс правки после ревью. Ожидает финального ревью.
 
 ---
 
 **EN**
-• CA Location Sources Import — Built the full data import pipeline with validation and DB loading. In progress.
+• New Payment Flow (#101) — Implemented the core payment flow and covered it with tests. In progress.
 • Bug #42 (Checkout form) — Fixed validation bug, applied review feedback. Awaiting final review.
 ```
 
