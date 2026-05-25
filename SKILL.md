@@ -56,10 +56,15 @@ If the script fails, show the error message and ask the user to check their `~/.
 
 The raw time entries contain multi-line technical commit-style descriptions. **Do not** copy them verbatim. Instead:
 
-1. **Group** related entries by the feature/task/ticket they belong to. Entries that share the same task or ticket number should be merged into one bullet.
-2. **Summarize** the work done in natural, spoken language — as if you're telling a teammate what you did. Each bullet should be 1–3 sentences: what the task was, what you did, and where it stands now (if clear from the data).
-3. **Skip** entries with less than 15 minutes total.
-4. **Sort** by total time descending.
+1. **Group strictly by task/ticket**. Build one bullet per unique task/ticket (for example: `#1146`, `#1200`, `#1122`).
+2. **Never mix tasks in one bullet**. If one raw entry mentions several tasks, split its content across the corresponding task bullets.
+3. **Do not create generic mixed bullets** like "coordination", "misc", or "other" if the work can be mapped to known tasks.
+4. If a task has no explicit ID but clearly represents one coherent initiative, keep it as one separate named task bullet.
+5. Merge all fragments that belong to the same task into that task's single bullet.
+6. When the user asks for "strictly by tasks", prioritize task separation over thematic grouping.
+7. **Summarize** the work done in natural, spoken language — as if you're telling a teammate what you did. Each bullet should be 1–3 sentences: what the task was, what you did, and where it stands now (if clear from the data).
+8. **Skip** entries with less than 15 minutes total.
+9. **Sort** by total time descending.
 
 #### Style guide for each bullet:
 - Start with the task name or ticket reference if present (e.g. `Task #1137`, `Bug #1142`)
@@ -67,6 +72,7 @@ The raw time entries contain multi-line technical commit-style descriptions. **D
 - End with current status if inferable (e.g. "ready for review", "in progress", "merged")
 - Do NOT use technical jargon or copy raw commit messages — write as spoken speech
 - Do NOT include time spent
+- Exactly one task/ticket per bullet; no cross-task aggregation
 
 #### Example of good output:
 ```
